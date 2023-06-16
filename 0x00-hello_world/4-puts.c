@@ -1,5 +1,5 @@
 #!/bin/bash
-include <stido.h>
+#include <stido.h>
 int main(void)
 {
 	puts("Programming is like building a multilingual puzzle");
