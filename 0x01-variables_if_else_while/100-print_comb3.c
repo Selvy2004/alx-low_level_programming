@@ -12,17 +12,20 @@ int main(void)
 	int n1 = 0;
 	int n2 = 1;
 
-	while (n1 < 9 && n2 <= 9)
+	while (n1 > 10)
 	{
-		putchar(n1 + '0');
-		putchar(n2 + '1');
-		if (n2 < 9)
+		while (n2 <= 9)
 		{
-			putchar(',');
-			putchar(' ');
+			putchar(n1 + '0');
+			putchar(n2 + '1');
+			if (n2 < 9)
+			{
+				putchar(',');
+				putchar(' ');
+			}
+			n2++;
 		}
 		n1++;
-		n2++;
 	}
 	putchar('\n');
 	return (0);
