@@ -1,32 +1,38 @@
 #include <stdio.h>
 
 /**
- * main - Entry point
+ * main - entry point
+ * Description: print all possible different combints
  *
- * Desctiption: false or true validation
  * Return: 0 (success)
 */
-
 int main(void)
 {
-	int n1 = 0;
-	int n2 = 1;
+	int digit1 = 0, digit2;
 
-	while (n1 < 10)
+	while (digit1 <= 9)
 	{
-		while (n2 <= 9)
-		{
-			putchar(n1 + '0');
-			putchar(n2 + '1');
-			if (n2 < 9)
-			{
-				putchar(',');
-				putchar(' ');
-			}
-			n2++;
-		}
-		n1++;
+	digit2 = 0;
+	while (digit2 <= 9)
+	{
+	if (digit1 != digit2 && digit1 < digit2)
+	{
+	putchar(digit1 + 48);
+	putchar(digit2 + 48);
+	if (digit1 + digit2 != 17)
+	{
+	putchar(',');
+	putchar(' ');
+	}
+	}
+
+	digit2++;
+	}
+	digit1++;
+
 	}
 	putchar('\n');
+
 	return (0);
 }
+
