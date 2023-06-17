@@ -21,7 +21,7 @@ int main(void)
 
 	while (n < 16)
 	{
-		putchar(n + 'a');
+		putchar(n - 10 + 'a');
 		n++;
 	}
 	putchar('\n');
