@@ -12,7 +12,7 @@ int main(void)
 	int n1 = 0;
 	int n2 = 1;
 
-	while (n1 > 10)
+	while (n1 < 10)
 	{
 		while (n2 <= 9)
 		{
