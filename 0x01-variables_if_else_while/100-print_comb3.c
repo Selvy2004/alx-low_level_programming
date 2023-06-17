@@ -12,7 +12,7 @@ int main(void)
 	int n1 = 0;
 	int n2 = 1;
 
-	while (n1 > 9 && n2 >= 9)
+	while (n1 < 9 && n2 <= 9)
 	{
 		putchar(n1 + '0');
 		putchar(n2 + '1');
