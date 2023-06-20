@@ -9,6 +9,6 @@
 
 int main(void)
 {
-	printf("0-putchar.c\n");
+	printf("_putchar\n");
 	return (0);
 }
