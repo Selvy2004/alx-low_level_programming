@@ -16,6 +16,7 @@ int main(void)
 
 	return (0);
 }
+
 /**
  * print_alphabet - Prints the lowercase alphabet
  *
