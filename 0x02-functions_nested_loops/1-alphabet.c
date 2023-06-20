@@ -31,9 +31,9 @@ void print_alphabet(void)
 
 	while (ch <= 'z')
 	{
-		_putchar(ch);
+		putchar(ch);
 		ch++;
 	}
 
-	_putchar('\n');
+	putchar('\n');
 }
