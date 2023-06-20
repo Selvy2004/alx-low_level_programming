@@ -1,14 +1,14 @@
 #include <stdio.h>
 #include "main.h"
 
+void print_alphabet(void);
+
 /**
  * main - Entry point
  *
  * Desctiption: print alphabet using void print_alphabet
  * Return: 0 (success)
 */
-
-void print_alphabet(void);
 
 int main(void)
 {
