@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include "main.h"
 
 /**
@@ -20,17 +19,36 @@ void print_times_table(int n)
 				result = i * j;
 				if (i < n && result < 10 && result != 0)
 				{
-					printf(",   ");
+					_putchar(',');
+					_putchar(' ');
+					_putchar(' ');
+					_putchar(' ');
 				}
 				else if (i < n && result >= 10 && result < 100)
 				{
-					printf(",  ");
+					_putchar(',');
+					_putchar(' ');
+					_putchar(' ');
 				}
 				else if (i < n && result >= 100)
 				{
-					printf(", ");
+					_putchar(',');
+					_putchar(' ');
 				}
-				printf("%i", result);
+				if (result < 10)
+				{
+					_putchar(result + '0');
+				}
+				else if (result >= 10 && result < 100)
+				{
+					_putchar(result / 10 + '0');
+				}
+				else if (result >= 100)
+				{
+					_putchar(result / 100 + '0');
+					_putchar((result % 100) / 10 + '0');
+					_putchar((result % 100) % 10 + '0');
+				}
 			}
 			_putchar('\n');
 		}
