@@ -17,8 +17,8 @@ int print_last_digit(int n)
 	{
 		last_digital = -last_digital;
 	}
-	char last_digital = last_digital + '0';
+	char last_digital_ch = last_digital + '0';
 
-	_putchar(last_digital);
+	_putchar(last_digital_ch);
 	return (last_digital);
 }
