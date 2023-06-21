@@ -15,38 +15,23 @@ void print_times_table(int n)
 	{
 		for (i = 0; i <= n; i++)
 		{
-			for (j = 0; j <= i; j++)
+			for (j = 0; j <= n; j++)
 			{
 				result = i * j;
-				if (result < 10)
+				if (j == 0)
 				{
-					_putchar(result + '0');
+					printf("0,   ");
 				}
-				else if (result >= 10 && result < 100)
+				else if (j == n)
 				{
-					_putchar(result / 10 + '0');
-					_putchar(result % 100 + '0');
+					printf("%2d", result);
 				}
-				else if (result >= 100)
+				else
 				{
-					_putchar(result / 100 + '0');
-					_putchar((result % 100) / 10 + '0');
-					_putchar((result % 100) % 10 + '0');
-				}
-				if (result < 10)
-				{
-					printf(",   ");
-				}
-				else if (result >= 10 && result < 100)
-				{
-					printf(",  ");
-				}
-				else if (result >= 100)
-				{
-					printf(", ");
+					printf("%2d,  ", result);
 				}
 			}
-			_putchar('\n');
+		printf("\n");
 		}
 	}
 }
