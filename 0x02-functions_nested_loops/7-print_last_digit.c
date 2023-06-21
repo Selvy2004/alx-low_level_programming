@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include "main.h"
 
 /**
@@ -12,6 +11,8 @@
 
 int print_last_digit(int n)
 {
-	printf("%i", n % 10);
-	return (n % 10);
+	int last_digital = n % 10;
+
+	_putchar(last_digital);
+	return (last_digital);
 }
