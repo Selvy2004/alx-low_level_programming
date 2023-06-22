@@ -21,12 +21,15 @@ int main(void)
 			num /= f;
 			large_f = f;
 
-			while (num / large_f == 0)
+			while (num % large_f == 0)
 			{
 				num /= large_f;
 			}
 		}
-		f++;
+		else
+		{
+			f++;
+		}
 	}
 	printf("%ld\n", large_f);
 	return (0);
