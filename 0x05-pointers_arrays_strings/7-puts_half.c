@@ -3,20 +3,22 @@
 #include <string.h>
 
 /**
- * puts_half - prints half of a string, followed by a new line.
- *
- * @str: take the input from another
-*/
-
+ *puts_half - prints half of a string, followed by a new line
+ *@str: take the input from another
+ * Return: void
+ */
 void puts_half(char *str)
 {
 	int i;
-	int len = strlen(str);
-	int s = len / 2;
 
-	for (i = s; i <= len - 1; i++)
+	for (i = 0; str[i] != '\0'; ++i)
+	;
+	i++;
+
+	for (i /= 2; str[i] != '\0'; ++i)
 	{
-		printf("%c", str[i]);
+		_putchar(str[i]);
 	}
-	printf("\n");
+	_putchar('\n');
 }
+
