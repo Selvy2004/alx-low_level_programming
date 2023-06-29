@@ -10,30 +10,31 @@
 
 char *leet(char *str)
 {
-	int i;
+	char *p = str;
 
-	for (i = 0; str[i] != '\0'; i++)
+	for (i = 0; *p != '\0'; i++)
 	{
-		if (str[i] == 'a' || str[i] == 'A')
+		if (*p == 'a' || *p == 'A')
 		{
-			str[i] = '4';
+			*p = '4';
 		}
-		if (str[i] == 'e' || str[i] == 'E')
+		if (*p == 'e' || *p == 'E')
 		{
-			str[i] = '3';
+			*p = '3';
 		}
-		if (str[i] == 'o' || str[i] == 'O')
+		if (*p == 'o' || *p == 'O')
 		{
-			str[i] = '0';
+			*p = '0';
 		}
-		if (str[i] == 't' || str[i] == 'T')
+		if (*p == 't' || *p == 'T')
 		{
-			str[i] = '7';
+			*p = '7';
 		}
-		if (str[i] == 'l' || str[i] == 'L')
+		if (*p == 'l' || *p == 'L')
 		{
-			str[i] = '1';
+			*p = '1';
 		}
+		p++;
 	}
 	return (str);
 }
