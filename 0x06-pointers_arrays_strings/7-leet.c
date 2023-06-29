@@ -12,7 +12,7 @@ char *leet(char *str)
 {
 	char *p = str;
 
-	for (i = 0; *p != '\0'; i++)
+	while (*p != '\0')
 	{
 		if (*p == 'a' || *p == 'A')
 		{
