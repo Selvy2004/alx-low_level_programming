@@ -8,7 +8,7 @@
  * @a: takes the input from another.
 */
 
-void print_diagsums(int (*a)[size], int size)
+void print_diagsums(int *a, int size)
 {
 	int i, j, sum1, sum2, s;
 
