@@ -1,11 +1,12 @@
 #include "main.h"
+#include <stdio.h>
+#include <string.h>
 
 /**
  * is_palindrome -  returns 1 if a string is a palindrome and 0 if not.
  * @s: takes input from another.
  * Return: 1 if a string is a palindrome and 0 if not.
 */
-
 
 int is_palindrome(char *s)
 {
