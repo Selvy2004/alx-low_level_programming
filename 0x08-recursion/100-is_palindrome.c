@@ -5,9 +5,8 @@
 /**
  * is_palindrome -  returns 1 if a string is a palindrome and 0 if not.
  * @s: takes input from another.
- * Return: 1 if a string is a palindrome and 0 if not.
+ * Return: 0 (Success)
 */
-
 int is_palindrome(char *s)
 {
 	int len = strlen(s);
