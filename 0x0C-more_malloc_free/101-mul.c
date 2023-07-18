@@ -12,7 +12,7 @@
 
 int main(int argc, char *argv[])
 {
-	if (argc != 3  !_isdigit(argv[1])  !_isdigit(argv[2]))
+	if (argc != 3 || !_isdigit(argv[1]) || !_isdigit(argv[2]))
 	{
 		printf("Error\n");
 		return (98);
