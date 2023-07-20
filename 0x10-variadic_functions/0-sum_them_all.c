@@ -1,22 +1,28 @@
-#ifndef MAIN_H
-#define MAIN_H
-#include <stdio.h>
-#include <stdarg.h>
+#include "variadic_functions.h"
 
 /**
- * struct print_fn - Holds a format specifier and corresponding function.
- * @format: The format specifier character.
- * @printer: Function pointer to the corresponding print function.
+ * sum_them_all - Returns the sum of all its parameters.
+ * @n: The number of arguments to be summed.
+ * @...: The variable number of arguments to be summed.
+ *
+ * Return: The sum of all the parameters.
  */
-
-typedef struct print_fn
+int sum_them_all(const unsigned int n, ...)
 {
-	char format;
-	void (*printer)(va_list);
-} print_fn_t;
+	va_list args;
+	unsigned int i, sum = 0;
 
-int sum_them_all(const unsigned int n, ...);
-void print_numbers(const char *separator, const unsigned int n, ...);
-void print_strings(const char *separator, const unsigned int n, ...);
-void print_all(const char * const format, ...);
-#endif
+	if (n == 0)
+		return (0);
+
+	va_start(args, n);
+
+	for (i = 0; i < n; i++)
+	{
+		sum += va_arg(args, int);
+	}
+
+	va_end(args);
+
+	return (sum);
+}
