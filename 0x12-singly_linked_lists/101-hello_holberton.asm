@@ -1,18 +1,18 @@
-section	.data
-	hello	db	'Hello, Holberton', 0
-	len	equ	$ - hello
+section .data
+	hello db "Hello, Holberton", 10, 0    ; 10 is the ASCII code for newline (\n)
 
-section	.text
-	global	asm_start
+section .text
+	extern printf
+	global main
 
-asm_start:
-	mov	rax, 1		; syscall number for sys_write
-	mov	rdi, 1		; file descriptor 1 (stdout)
-	mov	rsi, hello	; pointer to the string
-	mov	rdx, len	; length of the string
-	syscall
+main:
+	push rbp
+	mov rdi, hello
+	call printf
+	pop rbp
 
-	mov	rax, 60		; syscall number for sys_exit
-	xor	rdi, rdi	; exit status 0
-	syscall
+	; Exit the program
+	mov rax, 60     ; syscall number for sys_exit
+	xor rdi, rdi    ; exit status 0
+	syscall         ; invoke the syscall
 
