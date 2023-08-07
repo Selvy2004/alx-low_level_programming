@@ -9,8 +9,8 @@
  * print_elf_header - Prints the information contained in the ELF header
  * @header: Pointer to the ELF header
  */
-
 void print_elf_header(unsigned char *header);
+
 /**
  * main - Entry point of the program
  * @argc: The number of command-line arguments
@@ -19,22 +19,24 @@ void print_elf_header(unsigned char *header);
  */
 int main(int argc, char *argv[])
 {
+	int fd;
+	ssize_t ret;
+	unsigned char header[BUF_SIZE];
+
 	if (argc != 2)
 	{
 		dprintf(STDERR_FILENO, "Usage: %s elf_filename\n", argv[0]);
 		exit(98);
 	}
 
-	int fd = open(argv[1], O_RDONLY);
-
+	fd = open(argv[1], O_RDONLY);
 	if (fd == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Cannot open file %s\n", argv[1]);
 		exit(98);
 	}
 
-	ssize_t ret = read(fd, header, BUF_SIZE);
-
+	ret = read(fd, header, BUF_SIZE);
 	if (ret == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Cannot read from file %s\n", argv[1]);
@@ -55,26 +57,27 @@ int main(int argc, char *argv[])
 	close(fd);
 	return (0);
 }
+
 /**
  * print_elf_header - Prints the information contained in the ELF header
  * @header: Pointer to the ELF header
  */
 void print_elf_header(unsigned char *header)
 {
+	int i;
+
 	printf("ELF Header:\n");
-	printf("\tMagic:   ");
-	for (int i = 0; i < 16; i++)
+	printf("\tMagic:\t");
+	for (i = 0; i < 16; i++)
 		printf("%02x ", header[i]);
 	printf("\n");
-	printf("\tClass:                             ELF%d\n",
-			header[4] == 1 ? 32 : 64);
-	printf("\tData:                              2's complement, %s endian\n",
+	printf("\tClass:\t\t\t\tELF%d\n", header[4] == 1 ? 32 : 64);
+	printf("\tData:\t\t\t\t2's complement, %s endian\n",
 			header[5] == 1 ? "little" : "big");
-	printf("\tVersion:                           %d (current)\n", header[6]);
-	printf("\tOS/ABI:                            UNIX - %s\n",
-			header[7] == 0 ? "System V" : "Other");
-	printf("\tABI Version:                       %d\n", header[8]);
-	printf("\tType:                              ");
+	printf("\tVersion:\t\t\t%d (current)\n", header[6]);
+	printf("\tOS/ABI:\t\t\t\tUNIX - %s\n", header[7] == 0 ? "System V" : "Other");
+	printf("\tABI Version:\t\t\t%d\n", header[8]);
+	printf("\tType:\t\t\t\t");
 	switch (header[16])
 	{
 		case 1:
@@ -92,8 +95,8 @@ void print_elf_header(unsigned char *header)
 		default:
 			printf("<unknown: %d>\n", header[16]);
 	}
-	printf("\tEntry point address:               0x");
-	for (int i = 24; i < 32; i++)
+	printf("\tEntry point address:\t\t0x");
+	for (i = 24; i < 32; i++)
 		printf("%02x", header[i]);
 	printf("\n");
 }
