@@ -1,36 +1,33 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <fcntl.h>
-#include <unistd.h>
 #include "main.h"
 
 /**
- * read_textfile - Reads a text file and prints
- * it to the POSIX standard output.
- * @filename: The name of the file to read
- * @letters: The number of letters to read and print
- * Return: The actual number of letters read and printed
+ * read_textfile - Reads a text file and prints it to
+ * the POSIX standard output.
+ * @filename: The name of the file to read.
+ * @letters: The number of letters it should read and print.
+ *
+ * Return: The actual number of letters it could read and print.
  */
 ssize_t read_textfile(const char *filename, size_t letters)
 {
+	int fd, n_read, n_written;
+	char *buffer;
+
 	if (filename == NULL)
 		return (0);
 
-	int fd = open(filename, O_RDONLY);
-
+	fd = open(filename, O_RDONLY);
 	if (fd == -1)
 		return (0);
 
-	char *buffer = malloc(sizeof(char) * letters);
-
+	buffer = malloc(sizeof(char) * letters);
 	if (buffer == NULL)
 	{
 		close(fd);
 		return (0);
 	}
 
-	ssize_t n_read = read(fd, buffer, letters);
-
+	n_read = read(fd, buffer, letters);
 	if (n_read == -1)
 	{
 		free(buffer);
@@ -38,9 +35,8 @@ ssize_t read_textfile(const char *filename, size_t letters)
 		return (0);
 	}
 
-	ssize_t n_written = write(STDOUT_FILENO, buffer, n_read);
-
-	if (n_written != n_read)
+	n_written = write(STDOUT_FILENO, buffer, n_read);
+	if (n_written == -1 || n_written != n_read)
 	{
 		free(buffer);
 		close(fd);
@@ -49,7 +45,6 @@ ssize_t read_textfile(const char *filename, size_t letters)
 
 	free(buffer);
 	close(fd);
-
 	return (n_written);
 }
 
